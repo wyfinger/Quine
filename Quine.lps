@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Release"/>
+    <Units Count="4">
+      <Unit0>
+        <Filename Value="Quine.dpr"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="37" Y="5"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="UnitMain.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UnitMain"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="1"/>
+        <TopLine Value="403"/>
+        <CursorPos X="14" Y="412"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="matrix.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Matrix"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="1"/>
+        <TopLine Value="150"/>
+        <CursorPos X="18" Y="152"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="D:\Lazarus\lcl\grids.pas"/>
+        <UnitName Value="Grids"/>
+        <WindowIndex Value="1"/>
+        <TopLine Value="4582"/>
+        <CursorPos X="11" Y="4621"/>
+        <UsageCount Value="10"/>
+      </Unit3>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="160" Column="1" TopLine="130"/>
+      </Position1>
+      <Position2>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="159" Column="1" TopLine="130"/>
+      </Position2>
+      <Position3>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="154" Column="1" TopLine="130"/>
+      </Position3>
+      <Position4>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="156" Column="1" TopLine="130"/>
+      </Position4>
+      <Position5>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="157" Column="1" TopLine="130"/>
+      </Position5>
+      <Position6>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="158" Column="1" TopLine="130"/>
+      </Position6>
+      <Position7>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="157" Column="1" TopLine="130"/>
+      </Position7>
+      <Position8>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="158" Column="1" TopLine="130"/>
+      </Position8>
+      <Position9>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="157" Column="41" TopLine="130"/>
+      </Position9>
+      <Position10>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="158" Column="20" TopLine="139"/>
+      </Position10>
+      <Position11>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="154" Column="1" TopLine="139"/>
+      </Position11>
+      <Position12>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="156" Column="15" TopLine="139"/>
+      </Position12>
+      <Position13>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="157" Column="41" TopLine="139"/>
+      </Position13>
+      <Position14>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="158" Column="1" TopLine="139"/>
+      </Position14>
+      <Position15>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="157" Column="1" TopLine="139"/>
+      </Position15>
+      <Position16>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="158" Column="19" TopLine="139"/>
+      </Position16>
+      <Position17>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="157" Column="1" TopLine="139"/>
+      </Position17>
+      <Position18>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="158" Column="1" TopLine="139"/>
+      </Position18>
+      <Position19>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="157" Column="1" TopLine="139"/>
+      </Position19>
+      <Position20>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="158" Column="1" TopLine="139"/>
+      </Position20>
+      <Position21>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="157" Column="1" TopLine="139"/>
+      </Position21>
+      <Position22>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="159" Column="1" TopLine="139"/>
+      </Position22>
+      <Position23>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="154" Column="1" TopLine="139"/>
+      </Position23>
+      <Position24>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="156" Column="1" TopLine="139"/>
+      </Position24>
+      <Position25>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="157" Column="1" TopLine="139"/>
+      </Position25>
+      <Position26>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="158" Column="1" TopLine="139"/>
+      </Position26>
+      <Position27>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="157" Column="1" TopLine="139"/>
+      </Position27>
+      <Position28>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="158" Column="1" TopLine="139"/>
+      </Position28>
+      <Position29>
+        <Filename Value="UnitMain.pas"/>
+        <Caret Line="102" Column="1" TopLine="67"/>
+      </Position29>
+      <Position30>
+        <Filename Value="matrix.pas"/>
+        <Caret Line="167" Column="32" TopLine="142"/>
+      </Position30>
+    </JumpHistory>
+  </ProjectSession>
+  <Debugging>
+    <Watches Count="4">
+      <Item1 ClassAutoCast="True">
+        <Expression Value="FValues"/>
+      </Item1>
+      <Item2 ClassAutoCast="True">
+        <Expression Value="ColNo"/>
+      </Item2>
+      <Item3 ClassAutoCast="True">
+        <Expression Value="FColCount-1 "/>
+      </Item3>
+      <Item4>
+        <Expression Value="FValues[0]"/>
+      </Item4>
+    </Watches>
+  </Debugging>
+  <EditorMacros Count="0"/>
+</CONFIG>
