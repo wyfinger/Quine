@@ -18,8 +18,8 @@ type
     FColCount,
     FRowCount : Integer;
     FValues   : TMatrixData;
-    procedure SetColCount(ColCount: Integer);
-    procedure SetRowCount(RowCount: Integer);
+    procedure SetRowCount(Rows: Integer);
+    procedure SetColCount(Cols: Integer);
     function GetValue(r, c: Integer): TCellType;
     procedure SetValue(r, c: Integer; Value: TCellType);
   public
@@ -55,8 +55,8 @@ end;
 constructor TMatrix.Create(const Rows, Cols: Integer);
 begin
  inherited Create;
- SetRowCount(RowCount);
- SetColCount(ColCount);
+ SetRowCount(Rows);
+ SetColCount(Cols);
 end;
 
 constructor TMatrix.Dublicate(Source: TMatrix);
@@ -79,43 +79,42 @@ end;
 
 procedure TMatrix.InsertRow(RowNo: Integer; Blank: TCellType);
 var
-  Inp  : TMatrix;
   r, c : Integer;
+  p    : array of TCellType;
 begin
- Inp := TMatrix.Dublicate(Self);
- SetRowCount(RowCount+1);
+ SetRowCount(FRowCount+1);
  SetColCount(ColCount);
- for c := 0 to ColCount-1 do
-   FValues[RowNo,c] := Blank;
- for r := RowNo to Inp.RowCount-1 do
-   for c := 0 to ColCount-1 do
-     FValues[r+1,c] := Inp[r,c];
- Inp.Free;
+ p := FValues[FRowCount-1];
+ for r := FRowCount-2 downto RowNo+1 do
+   FValues[r+1] := FValues[r];
+ FValues[RowNo] := p;
+ for c := 0 to FColCount-1 do
+   FValues[RowNo, c] := Blank;
 end;
 
 procedure TMatrix.AddRow(Blank: TCellType);
 var
  c : Integer;
 begin
- SetRowCount(RowCount+1);
- SetColCount(ColCount);
+ SetRowCount(FRowCount+1);
+ SetColCount(FColCount);
  for c := 0 to ColCount-1 do
    FValues[RowCount-1,c] := Blank;
 end;
 
-procedure TMatrix.SetColCount(ColCount: Integer);
+procedure TMatrix.SetRowCount(Rows: Integer);
+begin
+ SetLength(FValues, Rows);
+ FRowCount := Rows;
+end;
+
+procedure TMatrix.SetColCount(Cols: Integer);
 var
   r : Integer;
 begin
  for r := 0 to FRowCount-1 do
-   SetLength(FValues[r], ColCount);
- FColCount := ColCount;
-end;
-
-procedure TMatrix.SetRowCount(RowCount: Integer);
-begin
- SetLength(FValues, RowCount);
- FRowCount := RowCount;
+   SetLength(FValues[r], Cols);
+ FColCount := Cols;
 end;
 
 procedure TMatrix.SetValue(r, c: Integer; Value: TCellType);
@@ -170,8 +169,16 @@ begin
 end;
 
 procedure TMatrix.DeleteCol(ColNo: Integer);
+var
+  r, c : Integer;
 begin
-
+ for r := 0 to FRowCount-1 do
+   begin
+     for c := FColCount-2 downto ColNo do
+       FValues[r,c] := FValues[r,c+1];
+     SetLength(FValues[r], FColCount-1);
+   end;
+ FColCount := FColCount-1;
 end;
 
 procedure TMatrix.CopyToClipboard;

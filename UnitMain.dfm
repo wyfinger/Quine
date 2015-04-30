@@ -1,11 +1,11 @@
 object frmMain: TfrmMain
-  Left = 291
-  Height = 585
-  Top = 111
+  Left = 258
+  Height = 522
+  Top = 118
   Width = 930
   BorderWidth = 4
   Caption = 'Минимизация логических функций методом Куайна / wyfinger@yandex.ru'
-  ClientHeight = 585
+  ClientHeight = 522
   ClientWidth = 930
   Color = clBtnFace
   Font.Color = clWindowText
@@ -14,24 +14,24 @@ object frmMain: TfrmMain
   LCLVersion = '1.2.6.0'
   object splOne: TSplitter
     Left = 304
-    Height = 577
+    Height = 514
     Top = 4
     Width = 5
   end
   object splTwo: TSplitter
     Left = 609
-    Height = 577
+    Height = 514
     Top = 4
     Width = 5
   end
   object grpInput: TGroupBox
     Left = 4
-    Height = 577
+    Height = 514
     Top = 4
     Width = 300
     Align = alLeft
     Caption = 'Исходные данные'
-    ClientHeight = 559
+    ClientHeight = 496
     ClientWidth = 296
     TabOrder = 0
     object bvl1: TBevel
@@ -43,7 +43,7 @@ object frmMain: TfrmMain
     end
     object grdInput: TStringGrid
       Left = 0
-      Height = 557
+      Height = 494
       Top = 2
       Width = 296
       Align = alClient
@@ -52,14 +52,14 @@ object frmMain: TfrmMain
       DefaultRowHeight = 18
       Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected]
       PopupMenu = PopupMenu1
-      RowCount = 6
+      RowCount = 7
       TabOrder = 0
       TitleFont.Color = clWindowText
       TitleFont.Height = -11
       TitleFont.Name = 'MS Sans Serif'
       OnDblClick = grdInputDblClick
       Cells = (
-        29
+        34
         0
         1
         'V1'
@@ -75,6 +75,9 @@ object frmMain: TfrmMain
         0
         5
         'V5'
+        0
+        6
+        'V6'
         1
         0
         '1'
@@ -92,6 +95,9 @@ object frmMain: TfrmMain
         '0'
         1
         5
+        '1'
+        1
+        6
         '1'
         2
         0
@@ -111,6 +117,9 @@ object frmMain: TfrmMain
         2
         5
         '1'
+        2
+        6
+        '1'
         3
         0
         '3'
@@ -128,6 +137,9 @@ object frmMain: TfrmMain
         '1'
         3
         5
+        '1'
+        3
+        6
         '1'
         4
         0
@@ -147,17 +159,20 @@ object frmMain: TfrmMain
         4
         5
         '0'
+        4
+        6
+        '1'
       )
     end
   end
   object grpImplets: TGroupBox
     Left = 614
-    Height = 577
+    Height = 514
     Top = 4
     Width = 312
     Align = alClient
     Caption = 'Импликантная матрица:'
-    ClientHeight = 559
+    ClientHeight = 496
     ClientWidth = 308
     TabOrder = 1
     object bvl3: TBevel
@@ -169,29 +184,157 @@ object frmMain: TfrmMain
     end
     object grdImplets: TStringGrid
       Left = 0
-      Height = 557
+      Height = 494
       Top = 2
       Width = 308
       Align = alClient
       BorderStyle = bsNone
+      ColCount = 6
       DefaultColWidth = 25
       DefaultRowHeight = 18
       Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected]
       PopupMenu = PopupMenu3
+      RowCount = 7
       TabOrder = 0
       TitleFont.Color = clWindowText
       TitleFont.Height = -11
       TitleFont.Name = 'MS Sans Serif'
+      Cells = (
+        41
+        0
+        1
+        'V1'
+        0
+        2
+        'V2'
+        0
+        3
+        'V3'
+        0
+        4
+        'V4'
+        0
+        5
+        'V5'
+        0
+        6
+        'V6'
+        1
+        0
+        'I1'
+        1
+        1
+        'x'
+        1
+        2
+        'x'
+        1
+        3
+        ' '
+        1
+        4
+        ' '
+        1
+        5
+        ' '
+        1
+        6
+        ' '
+        2
+        0
+        'I2'
+        2
+        1
+        'x'
+        2
+        2
+        ' '
+        2
+        3
+        'x'
+        2
+        4
+        ' '
+        2
+        5
+        ' '
+        2
+        6
+        ' '
+        3
+        0
+        'I3'
+        3
+        1
+        ' '
+        3
+        2
+        ' '
+        3
+        3
+        'x'
+        3
+        4
+        'x'
+        3
+        5
+        ' '
+        3
+        6
+        ' '
+        4
+        0
+        'I4'
+        4
+        1
+        ' '
+        4
+        2
+        ' '
+        4
+        3
+        ' '
+        4
+        4
+        'x'
+        4
+        5
+        'x'
+        4
+        6
+        ' '
+        5
+        0
+        'I5'
+        5
+        1
+        ' '
+        5
+        2
+        ' '
+        5
+        3
+        ' '
+        5
+        4
+        ' '
+        5
+        5
+        'x'
+        5
+        6
+        'x'
+      )
     end
   end
   object grpSimplets: TGroupBox
     Left = 309
-    Height = 577
+    Height = 514
     Top = 4
     Width = 300
     Align = alLeft
     Caption = 'Простые импликанты:'
-    ClientHeight = 559
+    ClientHeight = 496
     ClientWidth = 296
     TabOrder = 2
     object bvl2: TBevel
@@ -203,7 +346,7 @@ object frmMain: TfrmMain
     end
     object grdSimplets: TStringGrid
       Left = 0
-      Height = 557
+      Height = 494
       Top = 2
       Width = 296
       Align = alClient
@@ -212,10 +355,101 @@ object frmMain: TfrmMain
       DefaultRowHeight = 18
       Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected]
       PopupMenu = PopupMenu2
+      RowCount = 6
       TabOrder = 0
       TitleFont.Color = clWindowText
       TitleFont.Height = -11
       TitleFont.Name = 'MS Sans Serif'
+      Cells = (
+        29
+        0
+        1
+        'I1'
+        0
+        2
+        'I2'
+        0
+        3
+        'I3'
+        0
+        4
+        'I4'
+        0
+        5
+        'I5'
+        1
+        0
+        '1'
+        1
+        1
+        '0'
+        1
+        2
+        '0'
+        1
+        3
+        '0'
+        1
+        4
+        '-'
+        1
+        5
+        '1'
+        2
+        0
+        '2'
+        2
+        1
+        '0'
+        2
+        2
+        '0'
+        2
+        3
+        '-'
+        2
+        4
+        '1'
+        2
+        5
+        '1'
+        3
+        0
+        '3'
+        3
+        1
+        '0'
+        3
+        2
+        '-'
+        3
+        3
+        '1'
+        3
+        4
+        '1'
+        3
+        5
+        '1'
+        4
+        0
+        '4'
+        4
+        1
+        '-'
+        4
+        2
+        '0'
+        4
+        3
+        '0'
+        4
+        4
+        '0'
+        4
+        5
+        '-'
+      )
     end
   end
   object PopupMenu1: TPopupMenu
@@ -497,7 +731,7 @@ object frmMain: TfrmMain
   end
   object PopupMenu2: TPopupMenu
     Images = ilMain
-    left = 311
+    left = 320
     top = 136
     object N7: TMenuItem
       Caption = 'Скопировать'
@@ -691,32 +925,32 @@ object frmMain: TfrmMain
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000101010FF434343FF00000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000FF000000FF434343FF000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000FF000000FF000000FF434343FF0000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000FF000000FF000000FF000000FF4343
+        0000101010FF434343FF00000000000000000000000000000000101010FF4343
         43FF000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000FF000000FF000000FF000000FF0000
-        00FF767676FF0000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000FF000000FF000000FF000000FF1010
+        0000000000FF000000FF434343FF000000000000000000000000000000FF0000
+        00FF434343FF0000000000000000000000000000000000000000000000000000
+        0000000000FF000000FF000000FF434343FF0000000000000000000000FF0000
+        00FF000000FF434343FF00000000000000000000000000000000000000000000
+        0000000000FF000000FF000000FF000000FF434343FF00000000000000FF0000
+        00FF000000FF000000FF434343FF000000000000000000000000000000000000
+        0000000000FF000000FF000000FF000000FF000000FF767676FF000000FF0000
+        00FF000000FF000000FF000000FF767676FF0000000000000000000000000000
+        0000000000FF000000FF000000FF000000FF101010FFDCDCDCFF000000FF0000
+        00FF000000FF000000FF101010FFDCDCDCFF0000000000000000000000000000
+        0000000000FF000000FF000000FF101010FFDCDCDCFF00000000000000FF0000
+        00FF000000FF101010FFDCDCDCFF000000000000000000000000000000000000
+        0000000000FF000000FF101010FFDCDCDCFF0000000000000000000000FF0000
+        00FF101010FFDCDCDCFF00000000000000000000000000000000000000000000
+        0000000000FF101010FFDCDCDCFF000000000000000000000000000000FF1010
         10FFDCDCDCFF0000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000FF000000FF000000FF101010FFDCDC
+        0000BABABAFFDCDCDCFF00000000000000000000000000000000BABABAFFDCDC
         DCFF000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000FF000000FF101010FFDCDCDCFF0000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000000000FF101010FFDCDCDCFF000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000000000000000000000000000BABABAFFDCDCDCFF00000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
-      ImageIndex = 6
+      ImageIndex = 7
       OnClick = N18Click
     end
   end
@@ -985,7 +1219,7 @@ object frmMain: TfrmMain
   end
   object PopupMenu3: TPopupMenu
     Images = ilMain
-    left = 614
+    left = 624
     top = 136
     object C1: TMenuItem
       Caption = 'Cкопировать'
@@ -1034,6 +1268,10 @@ object frmMain: TfrmMain
     object N19: TMenuItem
       Caption = 'Выделить ядро'
       OnClick = N19Click
+    end
+    object MenuItem8: TMenuItem
+      Caption = 'Что можно удалить'
+      OnClick = MenuItem8Click
     end
     object MenuItem6: TMenuItem
       Caption = '-'

@@ -20,6 +20,7 @@ type
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
+    MenuItem8: TMenuItem;
     splOne: TSplitter;
     bvl1: TBevel;
     grpImplets: TGroupBox;
@@ -60,6 +61,7 @@ type
     procedure MenuItem4Click(Sender: TObject);
     procedure MenuItem5Click(Sender: TObject);
     procedure MenuItem7Click(Sender: TObject);
+    procedure MenuItem8Click(Sender: TObject);
     procedure N1Click(Sender: TObject);
     procedure N10Click(Sender: TObject);
     procedure N12Click(Sender: TObject);
@@ -99,7 +101,10 @@ begin
  Matrix.ColCount := Grid.ColCount-1;
  for r := 0 to Matrix.RowCount-1 do
    for c := 0 to Matrix.ColCount-1 do
-     Matrix[r, c] := Grid.Cells[c+1, r+1][1];
+     if Length(Grid.Cells[c+1, r+1]) = 0 then
+       Matrix[r, c] := ' '
+     else
+       Matrix[r, c] := Grid.Cells[c+1, r+1][1];
 end;
 
 // Выгрузка данных из матрицы в грид
@@ -211,22 +216,22 @@ end;
 // Вставить из буфера
 procedure TfrmMain.N1Click(Sender: TObject);
 var
-  m : TMatrix;
+  M : TMatrix;
 begin
- m := TMatrix.Create;
- m.PasteFromClipboard();
- MatrixToGrid(m, grdInput, 'V');
+ M := TMatrix.Create;
+ M.PasteFromClipboard();
+ MatrixToGrid(M, grdInput, 'V');
 end;
 
 // Взять из простых импликант
 procedure TfrmMain.N10Click(Sender: TObject);
 var
-  m : TMatrix;
+  M : TMatrix;
 begin
- m := TMatrix.Create;
- GridToMatrix(grdSimplets, m);
- MatrixToGrid(m, grdInput, 'V');
- m.Free;
+ M := TMatrix.Create;
+ GridToMatrix(grdSimplets, M);
+ MatrixToGrid(M, grdInput, 'V');
+ M.Free;
 end;
 
 // Цикл склеивания из исходных данных
@@ -321,59 +326,58 @@ begin
        if s = Inp.ColCount then IM[ir,sc] := 'x';
      end;
  MatrixToGrid(IM, grdImplets, 'V', 'I');
-
 end;
 
 // Выделить ядро
 procedure TfrmMain.N19Click(Sender: TObject);
 var
-  IM    : TMatrix;
+  M         : TMatrix;
   r, c      : Integer;
   s, r2, c2 : Integer;
 begin
- IM := TMatrix.Create;
- GridToMatrix(grdImplets, IM);
+ M := TMatrix.Create;
+ GridToMatrix(grdImplets, M);
 
- for r := 0 to IM.RowCount-1 do
+ for r := 0 to M.RowCount-1 do
    begin
      s := 0;
      c2 := 0;
-     for c := 0 to IM.ColCount-1 do
-       if IM[r,c] <> ' ' then
+     for c := 0 to M.ColCount-1 do
+       if M[r,c] <> ' ' then
          begin
            Inc(s);
            c2 := c;
          end;  
      if s = 1 then
        begin
-         for r2 := 0 to IM.RowCount-1 do
-           if IM[r2,c2] = 'x' then IM[r2,c2] := 'X';
-         IM[r,c2] := '*';
+         for r2 := 0 to M.RowCount-1 do
+           if M[r2,c2] = 'x' then M[r2,c2] := 'X';
+         M[r,c2] := '*';
        end;
    end;
- MatrixToGrid(IM, grdImplets, 'V', 'I');
+ MatrixToGrid(M, grdImplets, 'V', 'I');
 end;
 
 // Скопировать простые импликанты
 procedure TfrmMain.N7Click(Sender: TObject);
 var
-  IM : TMatrix;
+  M : TMatrix;
 begin
- IM := TMatrix.Create;
- GridToMatrix(grdSimplets, IM);
- IM.CopyToClipboard();
- IM.Free;
+ M := TMatrix.Create;
+ GridToMatrix(grdSimplets, M);
+ M.CopyToClipboard();
+ M.Free;
 end;
 
 // Скопировать Импликантную матрицу
 procedure TfrmMain.C1Click(Sender: TObject);
 var
-  IM : TMatrix;
+  M : TMatrix;
 begin
- IM := TMatrix.Create;
- GridToMatrix(grdImplets, IM);
- IM.CopyToClipboard();
- IM.Free;
+ M := TMatrix.Create;
+ GridToMatrix(grdImplets, M);
+ M.CopyToClipboard();
+ M.Free;
 end;
 
 // Инвертировать ячейку
@@ -388,52 +392,72 @@ end;
 // Вставить строку
 procedure TfrmMain.MenuItem2Click(Sender: TObject);
 var
-  Inp : TMatrix;
+  M : TMatrix;
 begin
- Inp := TMatrix.Create;
- GridToMatrix(grdInput, Inp);
+ M := TMatrix.Create;
+ GridToMatrix(grdInput, M);
  // Если выделена последняя строка - добавим строку вниз,
- if grdInput.Row-1 = Inp.RowCount-1 then
-   Inp.AddRow(' ')
+ if grdInput.Row-1 = M.RowCount-1 then
+   M.AddRow(' ')
  else
-   Inp.InsertRow(grdInput.Row-1, ' ');
- MatrixToGrid(Inp, grdInput, 'V');
+   M.InsertRow(grdInput.Row-1, ' ');
+ MatrixToGrid(M, grdInput, 'V');
 end;
 
 // Вставить столбец
 procedure TfrmMain.MenuItem3Click(Sender: TObject);
 var
-  Inp : TMatrix;
+  M : TMatrix;
 begin
- Inp := TMatrix.Create;
- GridToMatrix(grdInput, Inp);
+ M := TMatrix.Create;
+ GridToMatrix(grdInput, M);
  // Если выделена последняя строка - добавим строку вниз,
-// if grdInput.Row-1 = Inp.RowCount-1 then
-//   Inp.AddRow(' ')
-// else
-   Inp.InsertCol(grdInput.Col-1, ' ');
- MatrixToGrid(Inp, grdInput, 'V');
+ if grdInput.Row-1 = M.ColCount-1 then
+   M.AddCol(' ')
+ else
+   M.InsertCol(grdInput.Col-1, ' ');
+ MatrixToGrid(M, grdInput, 'V');
 end;
 
 // Удалить строку
 procedure TfrmMain.MenuItem4Click(Sender: TObject);
 var
-  Inp : TMatrix;
+  M : TMatrix;
 begin
- Inp := TMatrix.Create;
- GridToMatrix(grdInput, Inp);
- Inp.DeleteRow(grdInput.Row-1);
- MatrixToGrid(Inp, grdInput, 'V');
+ M := TMatrix.Create;
+ GridToMatrix(grdInput, M);
+ M.DeleteRow(grdInput.Row-1);
+ MatrixToGrid(M, grdInput, 'V');
 end;
 
+// Удалить столбец
 procedure TfrmMain.MenuItem5Click(Sender: TObject);
+var
+  M : TMatrix;
 begin
-
+ M := TMatrix.Create;
+ GridToMatrix(grdInput, M);
+ M.DeleteCol(grdInput.Col-1);
+ MatrixToGrid(M, grdInput, 'V');
 end;
 
 // Удалить импликант из импликантной матрицы (столбец) и простых импликант
 // (строка)
 procedure TfrmMain.MenuItem7Click(Sender: TObject);
+var
+  S, IM : TMatrix;
+begin
+ S  := TMatrix.Create;    // Простые импликанты
+ IM := TMatrix.Create;    // Импликантная матрица
+ GridToMatrix(grdSimplets, S);
+ GridToMatrix(grdImplets, IM);
+ IM.DeleteCol(grdImplets.Col);
+ S.DeleteRow(grdSimplets.Col);
+ MatrixToGrid(S, grdSimplets, 'I');
+ MatrixToGrid(IM, grdImplets, 'V', 'I');
+end;
+
+procedure TfrmMain.MenuItem8Click(Sender: TObject);
 begin
 
 end;
