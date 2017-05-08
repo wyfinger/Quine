@@ -14,6 +14,9 @@ type
     grpInput: TGroupBox;
     grdInput: TStringGrid;
     MenuItem1: TMenuItem;
+    MenuItem10: TMenuItem;
+    MenuItem11: TMenuItem;
+    MenuItem12: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -21,6 +24,7 @@ type
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
+    MenuItem9: TMenuItem;
     splOne: TSplitter;
     bvl1: TBevel;
     grpImplets: TGroupBox;
@@ -56,6 +60,9 @@ type
     N20: TMenuItem;
     procedure C1Click(Sender: TObject);
     procedure grdInputDblClick(Sender: TObject);
+    procedure MenuItem10Click(Sender: TObject);
+    procedure MenuItem11Click(Sender: TObject);
+    procedure MenuItem12Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
@@ -389,6 +396,45 @@ begin
    grdInput.Cells[grdInput.Col, grdInput.Row] := '1';
 end;
 
+// Заменить 0 на -
+procedure TfrmMain.MenuItem10Click(Sender: TObject);
+var
+  M : TMatrix;
+  r, c      : Integer;
+begin
+ M := TMatrix.Create;
+ GridToMatrix(grdInput, M);
+ for r := 0 to M.RowCount-1 do
+   for c := 0 to M.ColCount-1 do
+     if M[r,c] = '0' then M[r,c] := '-';
+ MatrixToGrid(M, grdInput, 'V');
+end;
+
+// Заменить 1 на -
+procedure TfrmMain.MenuItem11Click(Sender: TObject);
+var
+  M : TMatrix;
+  r, c      : Integer;
+begin
+ M := TMatrix.Create;
+ GridToMatrix(grdInput, M);
+ for r := 0 to M.RowCount-1 do
+   for c := 0 to M.ColCount-1 do
+     if M[r,c] = '1' then M[r,c] := '-';
+ MatrixToGrid(M, grdInput, 'V');
+end;
+
+// Скопировать матрицу исходных данных
+procedure TfrmMain.MenuItem12Click(Sender: TObject);
+var
+  M : TMatrix;
+begin
+ M := TMatrix.Create;
+ GridToMatrix(grdInput, M);
+ M.CopyToClipboard();
+ M.Free;
+end;
+
 // Вставить строку
 procedure TfrmMain.MenuItem2Click(Sender: TObject);
 var
@@ -451,8 +497,8 @@ begin
  IM := TMatrix.Create;    // Импликантная матрица
  GridToMatrix(grdSimplets, S);
  GridToMatrix(grdImplets, IM);
- IM.DeleteCol(grdImplets.Col);
- S.DeleteRow(grdSimplets.Col);
+ IM.DeleteCol(grdImplets.Col-1);
+ S.DeleteRow(grdSimplets.Col-1);
  MatrixToGrid(S, grdSimplets, 'I');
  MatrixToGrid(IM, grdImplets, 'V', 'I');
 end;

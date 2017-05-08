@@ -456,6 +456,11 @@ object frmMain: TfrmMain
     Images = ilMain
     left = 16
     top = 136
+    object MenuItem12: TMenuItem
+      Caption = 'Скопировать'
+      ImageIndex = 0
+      OnClick = MenuItem12Click
+    end
     object N1: TMenuItem
       Caption = 'Вставить'
       Bitmap.Data = {
@@ -598,6 +603,17 @@ object frmMain: TfrmMain
     object MenuItem5: TMenuItem
       Caption = 'Удалить столбец'
       OnClick = MenuItem5Click
+    end
+    object MenuItem9: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem10: TMenuItem
+      Caption = 'Заменить ''0'' на ''-'''
+      OnClick = MenuItem10Click
+    end
+    object MenuItem11: TMenuItem
+      Caption = 'Заменить ''1'' на ''-'''
+      OnClick = MenuItem11Click
     end
     object N4: TMenuItem
       Caption = '-'

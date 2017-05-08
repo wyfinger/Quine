@@ -174,7 +174,7 @@ var
 begin
  for r := 0 to FRowCount-1 do
    begin
-     for c := FColCount-2 downto ColNo do
+     for c := ColNo to FColCount-2 do
        FValues[r,c] := FValues[r,c+1];
      SetLength(FValues[r], FColCount-1);
    end;
